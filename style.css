@@ -1,0 +1,1038 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #182b44, #07111f 60%);
+
+    color: #ffffff;
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.topo {
+
+    min-height: 90px;
+
+    padding: 20px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(5,12,23,0.8);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.topo h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.topo p {
+
+    color: #9eafc5;
+
+    font-size: 14px;
+}
+
+
+.status-header {
+
+    background: #10243b;
+
+    border: 1px solid #214363;
+
+    padding: 10px 16px;
+
+    border-radius: 20px;
+
+    color: #6fd8ff;
+
+    font-size: 14px;
+}
+
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 90%;
+
+    max-width: 1500px;
+
+    margin: 30px auto;
+}
+
+
+
+/* =========================
+   GRID PRINCIPAL
+========================= */
+
+main.container {
+
+    display: grid;
+
+    grid-template-columns: 260px 1fr 280px;
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+
+/* =========================
+   PAINÉIS
+========================= */
+
+.painel {
+
+    background: rgba(12,25,42,0.9);
+
+    border: 1px solid #203952;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+
+.painel h2 {
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+
+.descricao {
+
+    color: #899bb1;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+
+
+/* =========================
+   COMPONENTES
+========================= */
+
+.componente-btn {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    background: #0d1d30;
+
+    border: 1px solid #203952;
+
+    border-radius: 10px;
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+
+.componente-btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #35b9ff;
+
+    background: #122840;
+}
+
+
+.componente-btn .icone {
+
+    font-size: 25px;
+
+    width: 35px;
+
+    text-align: center;
+}
+
+
+.componente-btn strong {
+
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.componente-btn small {
+
+    display: block;
+
+    color: #8093aa;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+}
+
+
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.separador {
+
+    height: 1px;
+
+    background: #203952;
+
+    margin: 20px 0;
+}
+
+
+
+/* =========================
+   BOTÃO LIMPAR
+========================= */
+
+.limpar-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #71333b;
+
+    background: #301820;
+
+    color: #ff8c98;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.limpar-btn:hover {
+
+    background: #47212b;
+}
+
+
+
+/* =========================
+   ÁREA DO CIRCUITO
+========================= */
+
+.area-principal {
+
+    min-width: 0;
+}
+
+
+.titulo-area {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+.titulo-area h2 {
+
+    font-size: 22px;
+}
+
+
+.titulo-area p {
+
+    color: #879ab1;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+
+/* =========================
+   BOTÃO TESTAR
+========================= */
+
+.testar-btn {
+
+    background: linear-gradient(135deg, #0784c8, #00b4d8);
+
+    border: none;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0,160,220,0.25);
+
+    transition: 0.2s;
+}
+
+
+.testar-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(0,180,240,0.4);
+}
+
+
+
+/* =========================
+   CIRCUITO
+========================= */
+
+.circuito {
+
+    min-height: 460px;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        #081625;
+
+    background-size: 25px 25px;
+
+    border: 1px solid #24415d;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+
+/* =========================
+   CIRCUITO VAZIO
+========================= */
+
+.circuito-vazio {
+
+    text-align: center;
+
+    color: #71869e;
+}
+
+
+.icone-vazio {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    opacity: 0.5;
+}
+
+
+.circuito-vazio h3 {
+
+    color: #a9b8ca;
+
+    margin-bottom: 8px;
+}
+
+
+.circuito-vazio p {
+
+    font-size: 13px;
+}
+
+
+
+/* =========================
+   COMPONENTE DENTRO DO CIRCUITO
+========================= */
+
+.componente-circuito {
+
+    min-width: 130px;
+
+    min-height: 105px;
+
+    background: #10243a;
+
+    border: 2px solid #2c4c68;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    transition: 0.3s;
+
+    animation: aparecer 0.3s ease;
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+.componente-circuito .icone {
+
+    font-size: 40px;
+
+    margin-bottom: 5px;
+}
+
+
+.componente-circuito .nome {
+
+    font-size: 13px;
+
+    color: #cbd7e5;
+}
+
+
+.componente-circuito .remover {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 6px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #71869e;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.componente-circuito .remover:hover {
+
+    color: #ff6574;
+}
+
+
+
+/* =========================
+   FIO
+========================= */
+
+.fio {
+
+    min-width: 70px;
+
+    height: 5px;
+
+    background: #65788d;
+
+    border-radius: 10px;
+
+    position: relative;
+}
+
+
+.fio::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    background: #65788d;
+
+    border-radius: 50%;
+
+    left: -3px;
+
+    top: -2px;
+}
+
+
+
+/* =========================
+   LÂMPADA
+========================= */
+
+.lampada-apagada {
+
+    filter: grayscale(0.8);
+
+}
+
+
+.lampada-acesa {
+
+    border-color: #ffe66d;
+
+    background: #3d3414;
+
+    box-shadow:
+        0 0 15px rgba(255,220,50,0.7),
+        0 0 50px rgba(255,200,30,0.3);
+
+    animation: brilho 1s infinite alternate;
+}
+
+
+@keyframes brilho {
+
+    from {
+        box-shadow:
+            0 0 15px rgba(255,220,50,0.5);
+    }
+
+    to {
+        box-shadow:
+            0 0 35px rgba(255,220,50,0.9);
+    }
+
+}
+
+
+
+/* =========================
+   INTERRUPTOR
+========================= */
+
+.interruptor {
+
+    cursor: pointer;
+}
+
+
+.interruptor-aberto {
+
+    border-color: #e15c68;
+
+}
+
+
+.interruptor-fechado {
+
+    border-color: #49d58b;
+
+}
+
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem {
+
+    margin-top: 15px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    border: 1px solid #28445f;
+}
+
+
+.mensagem p {
+
+    font-size: 13px;
+
+    margin-top: 3px;
+
+    color: #91a5ba;
+}
+
+
+.sistema-neutro {
+
+    background: #0e2034;
+}
+
+
+.sistema-sucesso {
+
+    background: #0d3023;
+
+    border-color: #1f7655;
+}
+
+
+.sistema-erro {
+
+    background: #32171d;
+
+    border-color: #743740;
+}
+
+
+.sistema-aviso {
+
+    background: #352b12;
+
+    border-color: #80651e;
+}
+
+
+
+/* =========================
+   DADOS
+========================= */
+
+.medida {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #0d1e31;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.medida-icone {
+
+    font-size: 25px;
+
+    width: 35px;
+
+    text-align: center;
+}
+
+
+.medida span {
+
+    display: block;
+
+    color: #8194aa;
+
+    font-size: 12px;
+}
+
+
+.medida strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 20px;
+
+    color: #ffffff;
+}
+
+
+.informacoes h3 {
+
+    margin-bottom: 15px;
+}
+
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.informacoes label {
+
+    display: block;
+
+    color: #8fa2b8;
+
+    font-size: 12px;
+
+    margin-bottom: 6px;
+
+    margin-top: 12px;
+}
+
+
+.input-grupo {
+
+    display: flex;
+
+    align-items: center;
+
+    background: #081726;
+
+    border: 1px solid #28435e;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+
+.input-grupo input {
+
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    padding: 10px;
+}
+
+
+.input-grupo span {
+
+    color: #71869d;
+
+    padding-right: 10px;
+
+}
+
+
+
+/* =========================
+   FÓRMULA
+========================= */
+
+.formula {
+
+    margin-top: 20px;
+
+    background: #101e30;
+
+    border: 1px solid #243d56;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    text-align: center;
+}
+
+
+.formula strong {
+
+    color: #7ddcff;
+}
+
+
+.formula p {
+
+    font-size: 20px;
+
+    margin-top: 8px;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================
+   DESAFIOS
+========================= */
+
+.desafios {
+
+    margin-top: 50px;
+
+    padding: 50px 0;
+
+    background: #07111f;
+
+    border-top: 1px solid #1b324a;
+}
+
+
+.desafios h2 {
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+
+.desafios > .container > p {
+
+    color: #8498af;
+
+    margin-bottom: 25px;
+}
+
+
+.desafios-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.desafio {
+
+    background: #0d1e31;
+
+    border: 1px solid #213c57;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.numero {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #46c6ff;
+}
+
+
+.desafio h3 {
+
+    margin-bottom: 7px;
+}
+
+
+.desafio p {
+
+    color: #8ca0b6;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+
+.desafio button {
+
+    border: 1px solid #2c6587;
+
+    background: #102d44;
+
+    color: #7ddcff;
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+
+.desafio button:hover {
+
+    background: #16405e;
+}
+
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: #050d17;
+
+    color: #71859c;
+
+    font-size: 13px;
+}
+
+
+footer span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+}
+
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1100px) {
+
+    main.container {
+
+        grid-template-columns: 220px 1fr;
+    }
+
+    .informacoes {
+
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    main.container {
+
+        grid-template-columns: 1fr;
+    }
+
+    .informacoes {
+
+        grid-column: auto;
+    }
+
+    .desafios-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-area {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .topo {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .circuito {
+
+        min-height: 350px;
+
+        padding: 15px;
+    }
+
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laboratório Virtual de Circuitos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+
+        <div>
+            <h1>⚡ Laboratório Virtual</h1>
+            <p>Simulador de Circuitos Elétricos</p>
+            <a href="https://www.google.com/search?q=Laboratorio-De-Circuitos-Jenpex" target="_blank" rel="noopener noreferrer">
+                Laboratorio-De-Circuitos-Jenpex
+            </a>
+        </div>
+
+        <div class="status-header">
+            <span id="statusHeader">Laboratório pronto</span>
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container">
+
+
+        <!-- PAINEL DE COMPONENTES -->
+        <section class="painel componentes">
+
+            <h2>🔧 Componentes</h2>
+
+            <p class="descricao">
+                Adicione os componentes que deseja utilizar no circuito.
+            </p>
+
+
+            <button class="componente-btn" onclick="adicionarComponente('fonte')">
+                <span class="icone">🔋</span>
+
+                <span>
+                    <strong>Fonte</strong>
+                    <small>Fonte de energia</small>
+                </span>
+            </button>
+
+
+            <button class="componente-btn" onclick="adicionarComponente('interruptor')">
+                <span class="icone">🔘</span>
+
+                <span>
+                    <strong>Interruptor</strong>
+                    <small>Abre ou fecha o circuito</small>
+                </span>
+            </button>
+
+
+            <button class="componente-btn" onclick="adicionarComponente('resistor')">
+                <span class="icone">▱</span>
+
+                <span>
+                    <strong>Resistor</strong>
+                    <small>Controla a resistência</small>
+                </span>
+            </button>
+
+
+            <button class="componente-btn" onclick="adicionarComponente('lampada')">
+                <span class="icone">💡</span>
+
+                <span>
+                    <strong>Lâmpada</strong>
+                    <small>Indica o funcionamento</small>
+                </span>
+            </button>
+
+
+            <button class="componente-btn" onclick="adicionarComponente('fio')">
+                <span class="icone">➖</span>
+
+                <span>
+                    <strong>Fio</strong>
+                    <small>Realiza conexões</small>
+                </span>
+            </button>
+
+
+            <div class="separador"></div>
+
+
+            <button class="limpar-btn" onclick="limparCircuito()">
+                🗑️ Limpar circuito
+            </button>
+
+        </section>
+
+
+
+        <!-- ÁREA DO CIRCUITO -->
+        <section class="area-principal">
+
+            <div class="titulo-area">
+
+                <div>
+                    <h2>🔬 Área do Circuito</h2>
+
+                    <p>
+                        Monte seu circuito utilizando os componentes.
+                    </p>
+                </div>
+
+                <button class="testar-btn" onclick="testarCircuito()">
+                    ⚡ TESTAR CIRCUITO
+                </button>
+
+            </div>
+
+
+            <!-- CIRCUITO -->
+            <div id="circuito" class="circuito">
+
+                <div class="circuito-vazio" id="mensagemVazia">
+
+                    <div class="icone-vazio">⚡</div>
+
+                    <h3>Seu circuito está vazio</h3>
+
+                    <p>
+                        Adicione componentes no painel ao lado
+                        para começar.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENSAGEM DO SISTEMA -->
+            <div id="mensagemSistema" class="mensagem sistema-neutro">
+
+                <span id="iconeMensagem">ℹ️</span>
+
+                <div>
+                    <strong id="tituloMensagem">
+                        Laboratório pronto
+                    </strong>
+
+                    <p id="textoMensagem">
+                        Adicione componentes e teste seu circuito.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PAINEL DE INFORMAÇÕES -->
+        <aside class="painel informacoes">
+
+            <h2>📊 Dados do circuito</h2>
+
+
+            <div class="medida">
+
+                <div class="medida-icone">
+                    ⚡
+                </div>
+
+                <div>
+                    <span>Tensão</span>
+
+                    <strong>
+                        <span id="valorTensao">12</span> V
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="medida">
+
+                <div class="medida-icone">
+                    ▱
+                </div>
+
+                <div>
+                    <span>Resistência</span>
+
+                    <strong>
+                        <span id="valorResistencia">6</span> Ω
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="medida">
+
+                <div class="medida-icone">
+                    🔌
+                </div>
+
+                <div>
+                    <span>Corrente</span>
+
+                    <strong>
+                        <span id="valorCorrente">0</span> A
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="separador"></div>
+
+
+            <h3>⚙️ Configurações</h3>
+
+
+            <label for="tensao">
+                Tensão da fonte
+            </label>
+
+            <div class="input-grupo">
+
+                <input
+                    type="number"
+                    id="tensao"
+                    value="12"
+                    min="1"
+                    max="100"
+                    onchange="atualizarDados()"
+                >
+
+                <span>V</span>
+
+            </div>
+
+
+            <label for="resistencia">
+                Resistência
+            </label>
+
+            <div class="input-grupo">
+
+                <input
+                    type="number"
+                    id="resistencia"
+                    value="6"
+                    min="1"
+                    max="1000"
+                    onchange="atualizarDados()"
+                >
+
+                <span>Ω</span>
+
+            </div>
+
+
+            <div class="formula">
+
+                <strong>Lei de Ohm</strong>
+
+                <p>
+                    I = V ÷ R
+                </p>
+
+            </div>
+
+
+        </aside>
+
+    </main>
+
+
+
+    <!-- DESAFIOS -->
+    <section class="desafios">
+
+        <div class="container">
+
+            <h2>🎯 Desafios</h2>
+
+            <p>
+                Teste seus conhecimentos montando os circuitos abaixo.
+            </p>
+
+
+            <div class="desafios-grid">
+
+
+                <article class="desafio">
+
+                    <span class="numero">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Circuito simples
+                        </h3>
+
+                        <p>
+                            Monte um circuito contendo uma fonte,
+                            um interruptor, um resistor e uma lâmpada.
+                        </p>
+
+                        <button onclick="carregarDesafio(1)">
+                            Começar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="desafio">
+
+                    <span class="numero">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Lei de Ohm
+                        </h3>
+
+                        <p>
+                            Utilize 12 V e 6 Ω.
+                            Descubra a corrente do circuito.
+                        </p>
+
+                        <button onclick="carregarDesafio(2)">
+                            Começar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="desafio">
+
+                    <span class="numero">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Interruptor
+                        </h3>
+
+                        <p>
+                            Monte um circuito e observe a diferença
+                            entre o interruptor aberto e fechado.
+                        </p>
+
+                        <button onclick="carregarDesafio(3)">
+                            Começar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            Laboratório Virtual de Circuitos Elétricos
+        </p>
+
+        <span>
+            Projeto educacional - HTML, CSS e JavaScript
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
