@@ -191,8 +191,51 @@ function iniciarQuestoes() {
         ["Potência total", "24 W"]
       ],
       explicacao: "Em série, somamos as resistências: Req = 4 + 2 = 6 Ω. Pela Lei de Ohm: I = U/Req = 12/6 = 2 A. A corrente é a mesma nos dois resistores.",
-      esquema: "serie"
+      esquema: "serie",
+      tutorial: {
+        introducao: "Vamos montar o circuito de 12 V com dois resistores, um de 4 Ω e outro de 2 Ω, ligados em um único caminho.",
+        nota: "Em série, a corrente percorre um único caminho. Se um componente ou fio interromper esse caminho, a corrente deixa de circular.",
+        etapas: [
+          {
+            titulo: "Separe os componentes",
+            texto: "Antes de ligar qualquer fio, identifique a fonte de 12 V e os dois resistores: R1 = 4 Ω e R2 = 2 Ω.",
+            acao: "Na bancada avançada, adicione uma bateria e dois resistores. Selecione cada resistor e ajuste seus valores para 4 Ω e 2 Ω.",
+            conferir: "Há uma única bateria e dois resistores com os valores corretos. Não confunda Ω (ohm) com V (volt)."
+          },
+          {
+            titulo: "Identifique os terminais",
+            texto: "Cada peça possui dois terminais. No desenho da bancada, eles aparecem como dois círculos, um de cada lado. Para esta simulação, basta identificar os dois terminais da bateria e os dois de cada resistor.",
+            acao: "Organize as peças na bancada: bateria à esquerda, R1 no meio e R2 à direita. Deixe espaço para fechar o caminho de retorno por baixo.",
+            conferir: "Os três componentes estão separados e os terminais estão visíveis. A posição na tela ajuda a visualizar, mas o que importa é a ligação dos terminais."
+          },
+          {
+            titulo: "Ligue a bateria ao primeiro resistor",
+            texto: "Escolha um dos terminais da bateria e leve um fio até uma das extremidades do resistor de 4 Ω. O outro terminal da bateria será usado no fio de retorno.",
+            acao: "Clique em um terminal da bateria e depois em um terminal do resistor R1. O laboratório deve indicar que o fio foi conectado. A simulação identifica os dois lados da fonte sem exigir que você escolha a polaridade.",
+            conferir: "Existe um fio ligando o positivo da bateria a apenas uma extremidade de R1. O outro terminal de R1 continua livre."
+          },
+          {
+            titulo: "Ligue os resistores em sequência",
+            texto: "Agora conecte a outra extremidade de R1 a uma extremidade de R2. Esse ponto é a ligação entre os dois resistores.",
+            acao: "Clique no terminal ainda livre de R1 e depois em um terminal de R2. Não conecte os dois resistores lado a lado em terminais iguais da bateria.",
+            conferir: "R1 e R2 estão ligados um depois do outro. Entre eles existe apenas um caminho, sem ramificações."
+          },
+          {
+            titulo: "Feche o caminho até a bateria",
+            texto: "Para a corrente circular, a outra extremidade de R2 precisa voltar ao segundo terminal da bateria, fechando o caminho.",
+            acao: "Conecte o terminal livre de R2 ao segundo terminal da bateria. Agora o caminho fica: terminal A da bateria → R1 → R2 → terminal B da bateria.",
+            conferir: "O circuito forma um caminho completo, sem pontas soltas. A resistência equivalente deve ser 4 + 2 = 6 Ω."
+          },
+          {
+            titulo: "Analise o resultado",
+            texto: "Com 12 V e resistência equivalente de 6 Ω, a Lei de Ohm determina a corrente total: I = U/R = 12/6 = 2 A.",
+            acao: "Clique em “Analisar circuito”. Compare o resultado com 6 Ω de resistência equivalente e 2 A de corrente. A potência total é P = U × I = 24 W.",
+            conferir: "O laboratório identifica circuito fechado, tipo série, resistência equivalente de 6 Ω e corrente de 2 A. Se aparecer circuito aberto, revise cada fio."
+          }
+        ]
+      }
     },
+
     complexo: {
       nivel: "NÍVEL INTERMEDIÁRIO",
       titulo: "Circuito misto",
@@ -203,7 +246,55 @@ function iniciarQuestoes() {
         ["Potência total", "28,8 W"]
       ],
       explicacao: "Primeiro, o paralelo: 1/Req = 1/6 + 1/6, então Req = 3 Ω. Depois, somamos com o resistor em série: 2 + 3 = 5 Ω. A corrente total é I = 12/5 = 2,4 A.",
-      esquema: "misto"
+      esquema: "misto",
+      tutorial: {
+        introducao: "Este circuito começa com um resistor de 2 Ω em série. Depois, o caminho se divide em dois ramos paralelos, cada um com um resistor de 6 Ω.",
+        nota: "No paralelo, os dois resistores precisam compartilhar os mesmos dois nós: o ponto onde os ramos se dividem e o ponto onde eles se juntam novamente.",
+        etapas: [
+          {
+            titulo: "Separe os quatro componentes",
+            texto: "Você vai usar uma bateria de 12 V, um resistor R1 de 2 Ω e dois resistores de 6 Ω (R2 e R3).",
+            acao: "Na bancada avançada, adicione uma bateria e três resistores. Ajuste R1 para 2 Ω e R2 e R3 para 6 Ω cada.",
+            conferir: "Há uma bateria e três resistores. Um resistor tem 2 Ω; os outros dois têm 6 Ω."
+          },
+          {
+            titulo: "Monte o primeiro trecho em série",
+            texto: "O resistor de 2 Ω fica antes da divisão dos caminhos. Por isso, a corrente total passa por ele antes de chegar aos dois ramos.",
+            acao: "Posicione a bateria à esquerda e R1 logo à direita. Ligue o polo positivo da bateria a uma extremidade de R1.",
+            conferir: "Um dos terminais da bateria está ligado a R1. Ainda não há ramificações antes desse resistor."
+          },
+          {
+            titulo: "Crie o ponto de divisão",
+            texto: "A outra extremidade de R1 será o primeiro nó. A partir desse ponto, a corrente poderá seguir por dois caminhos diferentes.",
+            acao: "Use a extremidade livre de R1 como ponto de divisão. Primeiro conecte esse terminal a um terminal de R2. Depois, clique novamente no mesmo terminal de R1 e conecte-o a um terminal de R3. Assim, os dois ramos começam no mesmo nó.",
+            conferir: "Os dois resistores de 6 Ω começam no mesmo ponto elétrico, depois de R1. Esse é o início do paralelo."
+          },
+          {
+            titulo: "Forme os dois ramos paralelos",
+            texto: "R2 e R3 devem ficar em caminhos separados. Nenhum deles deve ficar depois do outro.",
+            acao: "Organize R2 no ramo de cima e R3 no ramo de baixo. Mantenha cada resistor entre o nó de divisão e o futuro nó de encontro.",
+            conferir: "Há dois caminhos: um passa somente por R2 e o outro passa somente por R3. Os ramos não estão em série entre si."
+          },
+          {
+            titulo: "Una os ramos novamente",
+            texto: "As outras extremidades de R2 e R3 precisam se encontrar em um mesmo segundo nó. É isso que caracteriza a ligação em paralelo.",
+            acao: "Conecte o terminal livre de R2 ao terminal livre de R3. Depois, clique novamente no terminal livre de R2 e conecte-o ao segundo terminal da bateria. Isso une os dois ramos e fecha o retorno.",
+            conferir: "Os dois resistores de 6 Ω compartilham os mesmos dois nós: o de divisão e o de encontro."
+          },
+          {
+            titulo: "Retorne ao polo negativo",
+            texto: "Depois que os dois caminhos se juntam, deve existir apenas um fio de retorno até o polo negativo da bateria.",
+            acao: "Ligue o nó de encontro dos ramos ao segundo terminal da bateria. O circuito completo fica: bateria → R1 → (R2 ou R3) → bateria.",
+            conferir: "O circuito tem um trecho em série antes da divisão e dois ramos em paralelo, que se juntam antes de voltar à bateria."
+          },
+          {
+            titulo: "Calcule e confira",
+            texto: "Primeiro calcule o paralelo: 1/Req = 1/6 + 1/6, então Req do paralelo = 3 Ω. Depois some R1: 2 + 3 = 5 Ω.",
+            acao: "Clique em “Analisar circuito”. Com 12 V e 5 Ω, a corrente total é I = 12/5 = 2,4 A. A potência total é 12 × 2,4 = 28,8 W.",
+            conferir: "O resultado esperado é circuito fechado, misto, 5 Ω de resistência equivalente e 2,4 A de corrente total."
+          }
+        ]
+      }
     }
   };
 
@@ -217,10 +308,54 @@ function iniciarQuestoes() {
     });
   });
 
+  let modeloAtual = modelos.basico;
+  let etapaAtual = 0;
+
+  const anterior = document.getElementById("anteriorTutorial");
+  const proxima = document.getElementById("proximaTutorial");
+
+  if (anterior) anterior.addEventListener("click", () => {
+    etapaAtual = Math.max(0, etapaAtual - 1);
+    mostrarEtapaTutorial();
+  });
+
+  if (proxima) proxima.addEventListener("click", () => {
+    const total = modeloAtual.tutorial.etapas.length;
+    if (etapaAtual < total - 1) {
+      etapaAtual++;
+    } else {
+      etapaAtual = 0;
+    }
+    mostrarEtapaTutorial();
+  });
+
   mostrarModelo(modelos.basico);
+
+  function mostrarEtapaTutorial() {
+    const tutorial = modeloAtual.tutorial;
+    const etapa = tutorial.etapas[etapaAtual];
+    const total = tutorial.etapas.length;
+
+    setText("tituloTutorial", `Como montar: ${modeloAtual.titulo}`);
+    setText("introducaoTutorial", tutorial.introducao);
+    setText("contadorTutorial", `Etapa ${etapaAtual + 1} de ${total}`);
+    setText("numeroTutorial", String(etapaAtual + 1).padStart(2, "0"));
+    setText("etapaTutorialTitulo", etapa.titulo);
+    setText("etapaTutorialTexto", etapa.texto);
+    setText("etapaTutorialAcao", etapa.acao);
+    setText("etapaTutorialConferir", etapa.conferir);
+    setText("notaTutorial", tutorial.nota);
+
+    const barra = document.getElementById("barraTutorial");
+    if (barra) barra.style.width = `${((etapaAtual + 1) / total) * 100}%`;
+
+    if (anterior) anterior.disabled = etapaAtual === 0;
+    if (proxima) proxima.textContent = etapaAtual === total - 1 ? "↻ Rever tutorial" : "Próxima etapa →";
+  }
 
   function mostrarModelo(modelo) {
     if (!modelo) return;
+
     setText("nivelCircuito", modelo.nivel);
     setText("tituloCircuito", modelo.titulo);
     setText("descricaoCircuito", modelo.descricao);
@@ -251,8 +386,13 @@ function iniciarQuestoes() {
         `<div class="resultado-item"><small>${nome}</small><strong>${valor}</strong></div>`
       ).join("");
     }
+
     const explicacao = document.getElementById("explicacaoCircuito");
     if (explicacao) explicacao.textContent = modelo.explicacao;
+
+    modeloAtual = modelo;
+    etapaAtual = 0;
+    mostrarEtapaTutorial();
   }
 }
 
@@ -308,6 +448,7 @@ function iniciarMontagemAvancada() {
 
   function adicionarPeca(tipo) {
     if (!nomes[tipo]) return;
+
     const peca = {
       id: proximoId++,
       tipo,
@@ -316,6 +457,7 @@ function iniciarMontagemAvancada() {
       resistencia: tipo === "lampada" ? 10 : 100,
       fechado: true
     };
+
     pecas.push(peca);
     selecionada = peca.id;
     desenhar();
@@ -329,7 +471,11 @@ function iniciarMontagemAvancada() {
   function posTerminal(id, lado) {
     const p = pecas.find((item) => item.id === id);
     if (!p) return null;
-    return { x: p.x + (lado === "a" ? -42 : 42), y: p.y };
+
+    return {
+      x: p.x + (lado === "a" ? -42 : 42),
+      y: p.y
+    };
   }
 
   function desenhar() {
@@ -341,6 +487,7 @@ function iniciarMontagemAvancada() {
       const a = posTerminal(fio.a.id, fio.a.lado);
       const b = posTerminal(fio.b.id, fio.b.lado);
       if (!a || !b) return;
+
       const linha = document.createElementNS(ns, "line");
       linha.setAttribute("x1", a.x);
       linha.setAttribute("y1", a.y);
@@ -354,6 +501,7 @@ function iniciarMontagemAvancada() {
     });
 
     pecas.forEach((peca) => desenharPeca(peca));
+
     setText("estadoConexao", terminalInicial
       ? "Agora clique no segundo terminal para concluir o fio."
       : "Clique em um terminal e depois em outro para ligar um fio.");
@@ -389,8 +537,16 @@ function iniciarMontagemAvancada() {
 
     grupo.addEventListener("pointerdown", (evento) => {
       if (evento.target.classList.contains("terminal-ponto")) return;
+
       selecionada = peca.id;
-      arrasto = { id: peca.id, inicioX: evento.clientX, inicioY: evento.clientY, x: peca.x, y: peca.y };
+      arrasto = {
+        id: peca.id,
+        inicioX: evento.clientX,
+        inicioY: evento.clientY,
+        x: peca.x,
+        y: peca.y
+      };
+
       grupo.setPointerCapture?.(evento.pointerId);
       desenhar();
     });
@@ -408,6 +564,7 @@ function iniciarMontagemAvancada() {
     ["a", "b"].forEach((lado) => {
       const pos = posTerminal(peca.id, lado);
       const ponto = document.createElementNS(ns, "circle");
+
       ponto.setAttribute("cx", pos.x);
       ponto.setAttribute("cy", pos.y);
       ponto.setAttribute("r", "7");
@@ -416,26 +573,38 @@ function iniciarMontagemAvancada() {
       ponto.setAttribute("stroke-width", "3");
       ponto.setAttribute("class", "terminal-ponto");
       ponto.style.cursor = "crosshair";
+
       ponto.addEventListener("click", (evento) => {
         evento.stopPropagation();
         conectar({ id: peca.id, lado });
       });
+
       camadaPecas.appendChild(ponto);
     });
   }
 
   svg.addEventListener("pointermove", (evento) => {
     if (!arrasto) return;
+
     const p = pecas.find((item) => item.id === arrasto.id);
     if (!p) return;
+
     const escalaX = 900 / svg.getBoundingClientRect().width;
     const escalaY = 500 / svg.getBoundingClientRect().height;
+
     p.x = Math.max(50, Math.min(850, arrasto.x + (evento.clientX - arrasto.inicioX) * escalaX));
     p.y = Math.max(40, Math.min(460, arrasto.y + (evento.clientY - arrasto.inicioY) * escalaY));
+
     desenhar();
   });
-  svg.addEventListener("pointerup", () => { arrasto = null; });
-  svg.addEventListener("pointerleave", () => { arrasto = null; });
+
+  svg.addEventListener("pointerup", () => {
+    arrasto = null;
+  });
+
+  svg.addEventListener("pointerleave", () => {
+    arrasto = null;
+  });
 
   function conectar(terminal) {
     if (!terminalInicial) {
@@ -444,19 +613,23 @@ function iniciarMontagemAvancada() {
       mostrar("Primeiro terminal selecionado. Escolha o segundo.");
       return;
     }
+
     if (terminalInicial.id === terminal.id && terminalInicial.lado === terminal.lado) {
       terminalInicial = null;
       desenhar();
       mostrar("Conexão cancelada.");
       return;
     }
+
     const repetido = fios.some((f) =>
       (f.a.id === terminalInicial.id && f.a.lado === terminalInicial.lado &&
        f.b.id === terminal.id && f.b.lado === terminal.lado) ||
       (f.b.id === terminalInicial.id && f.b.lado === terminalInicial.lado &&
        f.a.id === terminal.id && f.a.lado === terminal.lado)
     );
+
     if (!repetido) fios.push({ a: terminalInicial, b: terminal });
+
     terminalInicial = null;
     desenhar();
     mostrar(repetido ? "Esses terminais já estão conectados." : "Fio conectado.");
@@ -466,9 +639,15 @@ function iniciarMontagemAvancada() {
     const p = pecas.find((item) => item.id === selecionada);
     const campo = document.getElementById("valorPeca");
     const valor = Number(campo?.value);
+
     if (!p) return mostrar("Selecione um resistor ou uma lâmpada primeiro.");
-    if (!["resistor", "lampada"].includes(p.tipo)) return mostrar("A peça selecionada não possui resistência editável.");
-    if (!Number.isFinite(valor) || valor <= 0) return mostrar("Digite uma resistência maior que zero.");
+    if (!["resistor", "lampada"].includes(p.tipo)) {
+      return mostrar("A peça selecionada não possui resistência editável.");
+    }
+    if (!Number.isFinite(valor) || valor <= 0) {
+      return mostrar("Digite uma resistência maior que zero.");
+    }
+
     p.resistencia = valor;
     desenhar();
     mostrar("Valor da resistência atualizado.");
@@ -476,7 +655,11 @@ function iniciarMontagemAvancada() {
 
   function alternarChave() {
     const p = pecas.find((item) => item.id === selecionada);
-    if (!p || p.tipo !== "interruptor") return mostrar("Selecione um interruptor.");
+
+    if (!p || p.tipo !== "interruptor") {
+      return mostrar("Selecione um interruptor.");
+    }
+
     p.fechado = !p.fechado;
     desenhar();
     mostrar(p.fechado ? "Interruptor fechado." : "Interruptor aberto.");
@@ -484,10 +667,12 @@ function iniciarMontagemAvancada() {
 
   function removerPeca() {
     if (!selecionada) return mostrar("Selecione uma peça para remover.");
+
     pecas = pecas.filter((p) => p.id !== selecionada);
     fios = fios.filter((f) => f.a.id !== selecionada && f.b.id !== selecionada);
     selecionada = null;
     terminalInicial = null;
+
     desenhar();
     mostrar("Peça removida.");
   }
@@ -497,12 +682,14 @@ function iniciarMontagemAvancada() {
     fios = [];
     selecionada = null;
     terminalInicial = null;
+
     desenhar();
     mostrar("Bancada limpa. Adicione os componentes novamente.");
   }
 
   function desfazerFio() {
     if (!fios.length) return mostrar("Não há fios para desfazer.");
+
     fios.pop();
     desenhar();
     mostrar("Último fio removido.");
@@ -515,34 +702,56 @@ function iniciarMontagemAvancada() {
 
   function analisar() {
     const fontes = pecas.filter((p) => p.tipo === "fonte");
-    if (fontes.length !== 1) return mostrar("Adicione exatamente uma bateria.");
+
+    if (fontes.length !== 1) {
+      return mostrar("Adicione exatamente uma bateria.");
+    }
 
     const fonte = fontes[0];
     const resistores = pecas.filter((p) => ["resistor", "lampada"].includes(p.tipo));
-    if (!resistores.length) return mostrar("Adicione pelo menos um resistor ou uma lâmpada.");
+
+    if (!resistores.length) {
+      return mostrar("Adicione pelo menos um resistor ou uma lâmpada.");
+    }
 
     const parent = new Map();
+
     pecas.forEach((p) => {
       parent.set(terminalId(p.id, "a"), terminalId(p.id, "a"));
       parent.set(terminalId(p.id, "b"), terminalId(p.id, "b"));
     });
 
     function find(x) {
-      if (parent.get(x) !== x) parent.set(x, find(parent.get(x)));
+      if (parent.get(x) !== x) {
+        parent.set(x, find(parent.get(x)));
+      }
       return parent.get(x);
     }
+
     function union(a, b) {
-      const ra = find(a), rb = find(b);
-      if (ra !== rb) parent.set(ra, rb);
+      const ra = find(a);
+      const rb = find(b);
+
+      if (ra !== rb) {
+        parent.set(ra, rb);
+      }
     }
 
-    fios.forEach((f) => union(terminalId(f.a.id, f.a.lado), terminalId(f.b.id, f.b.lado)));
+    fios.forEach((f) => {
+      union(terminalId(f.a.id, f.a.lado), terminalId(f.b.id, f.b.lado));
+    });
+
     pecas.filter((p) => p.tipo === "interruptor" && p.fechado)
-      .forEach((p) => union(terminalId(p.id, "a"), terminalId(p.id, "b")));
+      .forEach((p) => {
+        union(terminalId(p.id, "a"), terminalId(p.id, "b"));
+      });
 
     const inicio = find(terminalId(fonte.id, "a"));
     const fim = find(terminalId(fonte.id, "b"));
-    if (inicio === fim) return mostrar("Atenção: possível curto-circuito. Revise as conexões.");
+
+    if (inicio === fim) {
+      return mostrar("Atenção: possível curto-circuito. Revise as conexões.");
+    }
 
     const arestas = resistores.map((p) => ({
       a: find(terminalId(p.id, "a")),
@@ -551,16 +760,24 @@ function iniciarMontagemAvancada() {
     })).filter((e) => e.a !== e.b);
 
     const caminho = existeCaminho(inicio, fim, arestas);
-    if (!caminho) return mostrar("CIRCUITO ABERTO: não há caminho completo para a corrente.");
+
+    if (!caminho) {
+      return mostrar("CIRCUITO ABERTO: não há caminho completo para a corrente.");
+    }
 
     const equivalente = reduzirRede(inicio, fim, arestas);
-    if (!equivalente) return mostrar("CIRCUITO FECHADO: há caminho para a corrente, mas esta configuração não pode ser calculada automaticamente por este modelo.");
+
+    if (!equivalente) {
+      return mostrar("CIRCUITO FECHADO: há caminho para a corrente, mas esta configuração não pode ser calculada automaticamente por este modelo.");
+    }
 
     const tensao = Number(campoTensao?.value) || 12;
     const corrente = tensao / equivalente.r;
     const potencia = tensao * corrente;
+
     const tipo = equivalente.paralelo && equivalente.serie ? "Misto"
-      : equivalente.paralelo ? "Paralelo" : "Série";
+      : equivalente.paralelo ? "Paralelo"
+      : "Série";
 
     mostrar(`<strong>CIRCUITO FECHADO</strong><p>
       Classificação: ${tipo}<br>
@@ -574,80 +791,136 @@ function iniciarMontagemAvancada() {
   function existeCaminho(inicio, fim, arestas) {
     const vistos = new Set([inicio]);
     const fila = [inicio];
+
     while (fila.length) {
       const atual = fila.shift();
+
       if (atual === fim) return true;
+
       arestas.forEach((e) => {
         const proximo = e.a === atual ? e.b : e.b === atual ? e.a : null;
+
         if (proximo && !vistos.has(proximo)) {
           vistos.add(proximo);
           fila.push(proximo);
         }
       });
     }
+
     return false;
   }
 
   function reduzirRede(inicio, fim, arestasOriginais) {
-    let edges = arestasOriginais.map((e) => ({ ...e, serie: false, paralelo: false }));
-    let mudouSerie = false, mudouParalelo = false;
+    let edges = arestasOriginais.map((e) => ({
+      ...e,
+      serie: false,
+      paralelo: false
+    }));
+
+    let mudouSerie = false;
+    let mudouParalelo = false;
+
     for (let rodada = 0; rodada < 100; rodada++) {
       let mudou = false;
 
       // Resistores em paralelo: mesmas duas extremidades
       for (let i = 0; i < edges.length && !mudou; i++) {
         for (let j = i + 1; j < edges.length; j++) {
-          const a = edges[i], b = edges[j];
-          if ((a.a === b.a && a.b === b.b) || (a.a === b.b && a.b === b.a)) {
+          const a = edges[i];
+          const b = edges[j];
+
+          if (
+            (a.a === b.a && a.b === b.b) ||
+            (a.a === b.b && a.b === b.a)
+          ) {
             const r = 1 / (1 / a.r + 1 / b.r);
+
             edges.splice(j, 1);
             edges.splice(i, 1);
-            edges.push({ a: a.a, b: a.b, r, serie: a.serie || b.serie, paralelo: true });
+
+            edges.push({
+              a: a.a,
+              b: a.b,
+              r,
+              serie: a.serie || b.serie,
+              paralelo: true
+            });
+
             mudou = true;
             mudouParalelo = true;
             break;
           }
         }
       }
+
       if (mudou) continue;
 
       // Resistores em série: nó intermediário com apenas duas ligações
       const nos = new Set(edges.flatMap((e) => [e.a, e.b]));
+
       for (const no of nos) {
         if (no === inicio || no === fim) continue;
+
         const ligacoes = edges.filter((e) => e.a === no || e.b === no);
+
         if (ligacoes.length === 2) {
           const [a, b] = ligacoes;
+
           const outroA = a.a === no ? a.b : a.a;
           const outroB = b.a === no ? b.b : b.a;
+
           if (outroA === outroB) continue;
+
           edges = edges.filter((e) => e !== a && e !== b);
+
           edges.push({
-            a: outroA, b: outroB, r: a.r + b.r,
-            serie: true, paralelo: a.paralelo || b.paralelo
+            a: outroA,
+            b: outroB,
+            r: a.r + b.r,
+            serie: true,
+            paralelo: a.paralelo || b.paralelo
           });
+
           mudou = true;
           mudouSerie = true;
           break;
         }
       }
+
       if (!mudou) break;
     }
 
     if (edges.length !== 1) return null;
+
     const e = edges[0];
-    if (!((e.a === inicio && e.b === fim) || (e.a === fim && e.b === inicio))) return null;
-    return { r: e.r, serie: mudouSerie || e.serie, paralelo: mudouParalelo || e.paralelo };
+
+    if (
+      !((e.a === inicio && e.b === fim) ||
+        (e.a === fim && e.b === inicio))
+    ) {
+      return null;
+    }
+
+    return {
+      r: e.r,
+      serie: mudouSerie || e.serie,
+      paralelo: mudouParalelo || e.paralelo
+    };
   }
 
   desenhar();
 }
 
+// ------------------------------------------
+// FUNÇÕES AUXILIARES
+// ------------------------------------------
 function setText(id, valor) {
   const elemento = document.getElementById(id);
   if (elemento) elemento.textContent = valor;
 }
 
 function formatar(valor) {
-  return Number(valor).toLocaleString("pt-BR", { maximumFractionDigits: 2 });
+  return Number(valor).toLocaleString("pt-BR", {
+    maximumFractionDigits: 2
+  });
 }
