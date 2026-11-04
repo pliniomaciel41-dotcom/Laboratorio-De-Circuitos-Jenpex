@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Laboratório virtual de circuitos elétricos para aprendizagem de eletricidade.">
+  <title>Laboratório Virtual de Circuitos Elétricos</title>
+  <link rel="stylesheet" href="style.css?v=20261104premium">
+  <script src="script.js?v=20261104premium" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <div class="marca"><span class="marca-icone">⚡</span><div><strong>Laboratório de Circuitos</strong><small>Laboratório virtual de eletricidade</small></div></div>
+      <span id="statusHeader" class="status-header">Montagem livre</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="apresentacao">
+      <span class="etiqueta">FÍSICA • SIMULAÇÃO DIDÁTICA</span>
+      <h1>Monte, teste e compreenda circuitos elétricos</h1>
+      <p>Explore componentes elétricos, altere os valores e observe os resultados de forma interativa.</p>
+    </section>
+
+    <nav class="abas" aria-label="Modos do laboratório">
+      <button class="aba ativa" type="button" data-aba="livre">Montagem livre</button>
+      <button class="aba" type="button" data-aba="questoes">Circuitos de questões</button>
+      <button class="aba" type="button" data-aba="avancada">Montagem avançada</button>
+    </nav>
+
+    <section id="painelLivre" class="workspace-livre">
+      <div class="workspace-heading">
+        <div><span class="workspace-overline"><i></i> CIRCUIT LAB / WORKSPACE 01</span><h2>Monte seu circuito</h2><p>Escolha os componentes, ajuste os parâmetros e acompanhe a resposta elétrica em tempo real.</p></div>
+        <div class="workspace-chip"><span>●</span> AMBIENTE INTERATIVO</div>
+      </div>
+
+      <section class="cartao painel-componentes">
+        <div class="section-heading"><div class="section-index">01</div><div><span class="etiqueta">BIBLIOTECA DE PEÇAS</span><h2>Escolha seus componentes</h2><p>Adicione elementos à sua bancada. Você pode combinar diferentes peças.</p></div><div class="section-side-note">COMPONENTES<br><b>05 disponíveis</b></div></div>
+        <div class="botoes-componentes">
+          <button type="button" class="componente-btn" data-componente="fonte"><span class="peca-icone fonte-icone">ϟ</span><b>Fonte</b><small>Alimentação DC</small><em>＋</em></button>
+          <button type="button" class="componente-btn" data-componente="interruptor"><span class="peca-icone switch-icone">⌁</span><b>Interruptor</b><small>Controle liga/desliga</small><em>＋</em></button>
+          <button type="button" class="componente-btn" data-componente="resistor"><span class="peca-icone resistor-icone">〰</span><b>Resistor</b><small>Resistência elétrica</small><em>＋</em></button>
+          <button type="button" class="componente-btn" data-componente="lampada"><span class="peca-icone lamp-icone">✳</span><b>Lâmpada</b><small>Carga luminosa</small><em>＋</em></button>
+          <button type="button" class="componente-btn" data-componente="fio"><span class="peca-icone fio-icone">↝</span><b>Fio</b><small>Condutor elétrico</small><em>＋</em></button>
+        </div>
+      </section>
+
+      <div class="workspace-grid">
+        <section class="cartao painel-parametros">
+          <div class="section-heading compact"><div class="section-index">02</div><div><span class="etiqueta">CONTROLE DA SIMULAÇÃO</span><h2>Parâmetros elétricos</h2><p>Modifique os valores e veja os cálculos mudarem.</p></div></div>
+          <div class="parametro-control">
+            <div class="parametro-label"><label for="tensao">Tensão da fonte</label><span>VOLTAGE</span></div>
+            <div class="parametro-input"><input id="tensao" type="number" min="0" step="0.5" value="12"><strong>V</strong></div>
+          </div>
+          <div class="parametro-control">
+            <div class="parametro-label"><label for="resistencia">Resistência</label><span>RESISTANCE</span></div>
+            <div class="parametro-input"><input id="resistencia" type="number" min="0.1" step="0.5" value="6"><strong>Ω</strong></div>
+          </div>
+          <div class="formula-card"><span>LEI DE OHM</span><strong>I = V ÷ R</strong><small>A corrente é calculada dividindo a tensão pela resistência.</small></div>
+          <div class="metricas">
+            <div class="metric-voltage"><small>TENSÃO</small><strong><span id="valorTensao">12</span><small>V</small></strong></div>
+            <div class="metric-resistance"><small>RESISTÊNCIA</small><strong><span id="valorResistencia">6</span><small>Ω</small></strong></div>
+            <div class="metric-current"><small>CORRENTE (I)</small><strong><span id="valorCorrente">2,00</span><small>A</small></strong></div>
+            <div class="metric-power"><small>POTÊNCIA (P)</small><strong><span id="valorPotencia">24,00</span><small>W</small></strong></div>
+          </div>
+        </section>
+
+        <section class="cartao cartao-circuito painel-montagem">
+          <div class="montagem-topline"><div><span class="etiqueta">03 / LIVE BUILD</span><h2>Sua bancada</h2><p>Adicione componentes e monte sua experiência elétrica.</p></div><div class="bench-status"><i></i> PRONTA</div></div>
+          <div class="bench-canvas-head"><span><i></i> ÁREA DE PROTOTIPAGEM</span><small>COMPONENTES INSERIDOS</small></div>
+          <div id="circuito" class="area-circuito"><div class="circuito-vazio"><span>ϟ</span><h3>Sua bancada está esperando</h3><p>Escolha uma peça na biblioteca para começar a montar.</p><small>SEU PRÓXIMO CIRCUITO COMEÇA AQUI</small></div></div>
+          <div class="acoes"><button id="testarCircuito" class="botao principal" type="button"><span>ϟ</span> Simular circuito</button><button id="limparCircuito" class="botao secundario" type="button">↺ Limpar bancada</button></div>
+          <section id="mensagemSistema" class="mensagem info" aria-live="polite"><strong id="tituloMensagem">Tudo pronto para começar</strong><p id="textoMensagem">Adicione uma fonte e uma carga para testar seu primeiro circuito.</p></section>
+        </section>
+      </div>
+
+      <section class="cartao desafios desafios-premium">
+        <div class="desafios-heading"><div><span class="etiqueta">LAB CHALLENGES</span><h2>Experimente um desafio</h2><p>Comece com uma situação prática e descubra o que acontece no circuito.</p></div><span class="desafio-decoration">✳</span></div>
+        <div class="lista-desafios">
+          <button type="button" data-desafio="1"><span class="desafio-numero">01</span><span><strong>Monte seu primeiro circuito</strong><small>Fonte + interruptor + resistor + lâmpada</small></span><em>↗</em></button>
+          <button type="button" data-desafio="2"><span class="desafio-numero">02</span><span><strong>Descubra a corrente elétrica</strong><small>Explore a Lei de Ohm com 12 V e 6 Ω</small></span><em>↗</em></button>
+          <button type="button" data-desafio="3"><span class="desafio-numero">03</span><span><strong>Interrompa o caminho</strong><small>Observe o efeito de um interruptor aberto</small></span><em>↗</em></button>
+        </div>
+      </section>
+      <p class="aviso-modelo">Modelo didático: a montagem livre apresenta os componentes e calcula os valores a partir da tensão e da resistência informadas. As peças nesta área são representativas, não conexões elétricas individuais.</p>
+    </section>
+
+    <section id="painelQuestoes" class="escondido">
+      <section class="cartao">
+        <div class="cartao-titulo"><div><span class="etiqueta">EXEMPLOS RESOLVIDOS</span><h2>Estude circuitos como os das questões de Física</h2></div><span class="icone-titulo">📘</span></div>
+        <p class="texto-suave">Escolha um circuito para visualizar o esquema, os resultados e a resolução passo a passo.</p>
+        <div class="seletor-modelos"><button type="button" class="botao principal ativo" data-modelo="basico">Circuito básico</button><button type="button" class="botao secundario" data-modelo="complexo">Circuito mais complexo</button></div>
+        <div class="modelo-cabecalho"><span id="nivelCircuito" class="etiqueta">NÍVEL BÁSICO</span><h2 id="tituloCircuito">Circuito em série</h2><p id="descricaoCircuito"></p></div>
+        <div id="esquemaWrap" class="esquema-wrap"></div>
+        <div id="resultadosCircuito" class="resultados-circuito"></div>
+        <div id="explicacaoCircuito" class="explicacao-circuito"></div>
+
+        <section class="tutorial-montagem" aria-labelledby="tituloTutorial">
+          <div class="tutorial-cabecalho">
+            <div>
+              <span class="etiqueta">PASSO A PASSO NA BANCADA</span>
+              <h2 id="tituloTutorial">Tutorial de montagem</h2>
+              <p id="introducaoTutorial">Faça uma etapa por vez. As instruções abaixo mostram exatamente onde clicar na montagem avançada.</p>
+            </div>
+            <span class="tutorial-icone">🛠️</span>
+          </div>
+          <div class="tutorial-progresso">
+            <span id="contadorTutorial">Etapa 1 de 5</span>
+            <div class="tutorial-trilho"><span id="barraTutorial"></span></div>
+          </div>
+          <div class="tutorial-corpo">
+            <div class="tutorial-numero" id="numeroTutorial">01</div>
+            <div class="tutorial-texto">
+              <h3 id="etapaTutorialTitulo">Separe os componentes</h3>
+              <p id="etapaTutorialTexto"></p>
+              <div class="tutorial-detalhe"><strong>O que fazer nesta etapa</strong><p id="etapaTutorialAcao"></p></div>
+              <div class="tutorial-verificacao"><strong>✓ Confira antes de avançar</strong><p id="etapaTutorialConferir"></p></div>
+            </div>
+          </div>
+          <div class="tutorial-controles">
+            <button id="anteriorTutorial" class="botao secundario" type="button" disabled>← Etapa anterior</button>
+            <button id="proximaTutorial" class="botao principal" type="button">Próxima etapa →</button>
+          </div>
+          <p class="tutorial-nota" id="notaTutorial">Importante: para ligar dois pontos, clique primeiro em um terminal azul e depois no segundo. Não é necessário arrastar o fio.</p>
+        </section>
+      </section>
+      <p class="aviso-modelo">Estes são exemplos prontos para estudo. Eles não alteram a montagem livre e não permitem desenhar circuitos arbitrários.</p>
+    </section>
+
+    <section id="painelAvancada" class="escondido">
+      <div class="cartao">
+        <div class="cartao-titulo"><div><span class="etiqueta">MODO AVANÇADO</span><h2>Monte seu próprio circuito</h2></div><span class="icone-titulo">🧠</span></div>
+        <p class="texto-suave">Monte o circuito posicionando as peças na bancada. Para criar uma ligação, clique em um terminal azul e depois no outro terminal desejado. Ao terminar, clique em “Analisar circuito”.</p>
+        <div class="studio-topbar">
+          <div class="studio-breadcrumb"><span class="studio-pulse"></span><b>WORKSPACE</b><i>/</i><span>EDITOR DE CIRCUITOS</span><small>• PROTOTIPAGEM ELÉTRICA</small></div>
+          <div class="studio-presets"><span>MODELOS</span><button type="button" data-studio-template="serie">Série</button><button type="button" data-studio-template="paralelo">Paralelo</button><button type="button" data-studio-template="misto">Misto</button></div>
+        </div>
+        <div class="avancado-layout studio-layout">
+          <aside class="painel-ferramentas studio-sidebar">
+            <div class="studio-panel-title"><span class="studio-index">01</span><div><h3>Componentes</h3><small>BIBLIOTECA ELÉTRICA</small></div></div>
+            <p class="studio-hint">Selecione uma peça para adicionar à bancada.</p>
+            <div class="paleta-avancada">
+              <button type="button" data-av-add="fonte"><i class="symbol-battery">ϟ</i><span><b>Bateria</b><small>Fonte de tensão DC</small></span><em>＋</em></button>
+              <button type="button" data-av-add="interruptor"><i class="symbol-switch">⌁</i><span><b>Interruptor</b><small>Chave liga / desliga</small></span><em>＋</em></button>
+              <button type="button" data-av-add="resistor"><i class="symbol-resistor">〰</i><span><b>Resistor</b><small>Resistência elétrica</small></span><em>＋</em></button>
+              <button type="button" data-av-add="lampada"><i class="symbol-lamp">✳</i><span><b>Lâmpada</b><small>Carga luminosa</small></span><em>＋</em></button>
+            </div>
+            <div class="studio-separator"></div>
+            <div class="studio-panel-title"><span class="studio-index">02</span><div><h3>Propriedades</h3><small>PEÇA SELECIONADA</small></div></div>
+            <div class="studio-field"><label for="valorPeca">Resistência do componente</label><div class="studio-input-wrap"><input id="valorPeca" type="number" min="0.1" step="0.1" value="100"><span>Ω</span></div><button id="aplicarValorPeca" class="studio-apply" type="button">Aplicar valor</button></div>
+            <div class="studio-field"><label for="tensaoAvancada">Tensão da bateria</label><div class="studio-input-wrap"><input id="tensaoAvancada" type="number" min="0" step="0.5" value="12"><span>V</span></div></div>
+            <button id="alternarChaveAvancada" class="studio-side-action" type="button">◉　Alternar interruptor</button>
+            <button id="removerPecaAvancada" class="studio-side-action danger" type="button">⌫　Remover selecionado</button>
+            <div class="studio-tip"><b>COMO MONTAR</b><p>1. Arraste os componentes para organizar.</p><p>2. Clique em dois terminais azuis para criar um fio.</p><p>3. Selecione uma peça para editar seu valor.</p></div>
+          </aside>
+
+          <section class="studio-workarea">
+            <div class="studio-canvas-head"><div><span class="studio-canvas-kicker">CIRCUIT CANVAS / 01</span><h3>Bancada de prototipagem</h3></div><div class="studio-canvas-status"><i></i> <span id="estadoConexao">Pronta para montagem</span></div></div>
+            <div class="studio-toolstrip"><span class="studio-tool active" title="Selecionar">⌖</span><span class="studio-tool" title="Conectar terminais">⟷</span><span class="studio-tool" title="Pontos de conexão">●</span><span class="studio-tool-label">MOVER COMPONENTES　•　CONECTAR TERMINAIS</span><span class="studio-zoom">GRID 25 PX</span></div>
+            <div class="studio-canvas-frame">
+              <svg id="bancadaAvancada" class="bancada-avancada" viewBox="0 0 900 500" role="img" aria-label="Bancada interativa para montar circuitos elétricos">
+                <defs>
+                  <pattern id="gradeBancada" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="#d7e6ef" stroke-opacity=".12" stroke-width=".8"/></pattern>
+                  <pattern id="gradePontos" width="125" height="125" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#1686b2" fill-opacity=".2"/></pattern>
+                </defs>
+                <rect width="900" height="500" fill="#f8fbfd"/><rect width="900" height="500" fill="url(#gradeBancada)"/><rect width="900" height="500" fill="url(#gradePontos)"/>
+                <g id="camadaFios"></g><g id="camadaPreview"></g><g id="camadaPecas"></g>
+              </svg>
+              <div class="studio-canvas-corner">LIVE DESIGN　/　DC CIRCUITS</div>
+            </div>
+            <div class="studio-legend"><span><i class="legend-node"></i> Terminal</span><span><i class="legend-wire"></i> Condutor</span><span><i class="legend-selected"></i> Selecionado</span><span>Duplo clique na chave para alternar</span></div>
+            <div class="studio-actionbar"><button id="analisarAvancado" class="studio-run" type="button"><span>▶</span> Analisar circuito</button><button id="desfazerFio" class="studio-action" type="button">↶ Desfazer fio</button><button id="limparAvancado" class="studio-action" type="button">⌫ Limpar bancada</button></div>
+            <section id="resultadoAvancado" class="resultado-avancado studio-result" aria-live="polite"><strong>Laboratório pronto</strong><p>Adicione os componentes, conecte os terminais e analise seu circuito.</p></section>
+          </section>
+
+          <aside class="studio-inspector">
+            <div class="studio-panel-title"><span class="studio-index">03</span><div><h3>Leitura do circuito</h3><small>RESULTADOS DA ANÁLISE</small></div></div>
+            <div class="studio-readout voltage"><span class="readout-icon">ϟ</span><div><small>TENSÃO DA FONTE</small><strong id="metricTensao">12.00 <i>V</i></strong></div></div>
+            <div class="studio-readout current"><span class="readout-icon">A</span><div><small>CORRENTE TOTAL</small><strong id="metricCorrente">—</strong></div></div>
+            <div class="studio-readout resistance"><span class="readout-icon">Ω</span><div><small>RESISTÊNCIA EQUIV.</small><strong id="metricResistencia">—</strong></div></div>
+            <div class="studio-readout power"><span class="readout-icon">ϟ</span><div><small>POTÊNCIA TOTAL</small><strong id="metricPotencia">—</strong></div></div>
+            <div class="studio-circuit-state"><span class="state-led"></span><div><b>STATUS DO CIRCUITO</b><small>Aguardando análise</small></div></div>
+            <div class="studio-components-count"><span>Peças na bancada</span><strong id="metricComponentes">0</strong></div>
+          </aside>
+        </div>
+      </div>
+      <section class="cartao dicas-circuito">
+        <div class="cartao-titulo"><div><span class="etiqueta">GUIA RÁPIDO</span><h2>Dicas para montar circuitos</h2></div><span class="icone-titulo">💡</span></div>
+        <div class="dicas-grade">
+          <article><h3>1. Circuito em série</h3><p>Os componentes ficam em um único caminho, um depois do outro. A corrente é a mesma em todos eles.</p></article>
+          <article><h3>2. Circuito em paralelo</h3><p>Os componentes ficam em ramificações diferentes, ligados aos mesmos dois pontos. A tensão é a mesma em cada ramo.</p></article>
+          <article><h3>3. Circuito misto</h3><p>Combina trechos em série e trechos em paralelo. Resolva primeiro os grupos em paralelo ou série mais simples.</p></article>
+          <article><h3>4. Circuito aberto e fechado</h3><p>Fechado: existe um caminho completo para a corrente. Aberto: há uma interrupção, por exemplo, em um interruptor aberto ou fio desconectado.</p></article>
+        </div>
+        <p class="aviso-modelo">Modelo didático: a análise considera uma fonte ideal e resistores/lâmpadas como resistências. Para classificar e calcular, monte redes simples de série e paralelo com uma única fonte.</p>
+      </section>
+    </section>
+
+    <footer><span>Laboratório Virtual de Circuitos Elétricos</span><span>Projeto educacional • HTML, CSS e JavaScript</span></footer>
+  </main>
+</body>
+</html>
